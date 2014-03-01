@@ -1,0 +1,13 @@
+[user]
+	name = sasha13
+	email = aleksandar.sotirovic@gmail.com
+[color]
+	ui = true
+[core]
+	editor = vim
+[alias]
+	st = status
+	co = checkout
+	br = branch
+  ci = commit
+  lg = log --date=relative --stat --graph --pretty=format:'%Cred%h%Creset :: %ad :: %Cgreen%s%Creset :: %C(yellow)%an%Creset'

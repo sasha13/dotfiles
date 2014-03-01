@@ -1,0 +1,22 @@
+Config { font = "xft:Liberation Mono:size=7:antialias=true:hinting=true"
+        , bgColor = "#151515" 
+        , fgColor = "#D7D0C7"
+        , position = Top
+        , lowerOnStart = True
+        , commands =
+                [ Run Cpu ["-L","3","-H","50","--normal","#429942","--high","#A36666"] 20
+                , Run CoreTemp ["-t","CoreT: <core>C","-L","40","-H","60","-l","lightblue","-n","gray90","-h","red"] 50
+                , Run Memory ["-t","RAM: <usedratio>%"] 100
+                , Run Date "%a %b %_d, %Y - %I:%M:%S" "date" 10
+                , Run Battery ["-t", "Batt: <left>"] 20
+                , Run Weather "LYBE" ["-t","<tempC>C","-L","5","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+                --, Run Com "sh" ["~/Scripts/ip.sh"] "ipaddr" 50
+                --, Run Com "curl" ["-s http://isitgoingtoraintoday.com | grep result | cut -d '>' -f2 | cut -d '<' -f1"] "rain" 36000
+                --, Run Com "sh" ["~/Scripts/keyboard.sh"] "key" 50
+                --, Run Com "sh" ["~/Scripts/socks.sh"] "socks" 50
+                , Run StdinReader
+                ]
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = " %StdinReader% }{<fc=#0b8bff>[</fc>%LYBE%<fc=#0b8bff>]</fc> - <fc=#0b8bff>[</fc>%battery%<fc=#0b8bff>]</fc> - <fc=#0b8bff>[</fc>%cpu% - %coretemp%<fc=#0b8bff>]</fc> - <fc=#0b8bff>[</fc>%memory%<fc=#0b8bff>]</fc> -- <fc=#0b8bff>[</fc>%date%<fc=#0b8bff>]</fc> "
+       }
